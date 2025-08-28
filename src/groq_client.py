@@ -8,8 +8,6 @@ from src.config import GROQ_API_KEY, DEFAULT_MODEL, DEFAULT_TEMPERATURE, DEFAULT
 client = Groq(api_key=GROQ_API_KEY)
 
 
-
-
 # -------- Prompt Builders --------
 def build_zero_shot_prompt(code_snippet):
     return f"""
@@ -18,7 +16,6 @@ You are a professional code assistant. Generate meaningful comments for the foll
 Code:
 {code_snippet}
 """
-
 
 
 def build_one_shot_prompt(code_snippet):
@@ -94,9 +91,11 @@ def get_ai_response(prompt, stream=False):
             stop=DEFAULT_STOP_SEQUENCE
         )
 
+
             # Log token usage
         tokens_used = getattr(response.usage, "total_tokens", None)
         if tokens_used:
             print(f"Tokens used: {tokens_used}")
+            
 
         return response.choices[0].message.content
