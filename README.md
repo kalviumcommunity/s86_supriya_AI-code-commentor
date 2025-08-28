@@ -102,7 +102,6 @@ AI-Code-Comment-Generator/
 │-- README.md
 │-- requirements.txt
 │-- app.py
-│-- voiceover.md
 │-- src/
     │-- config.py
     │-- groq_client.py
